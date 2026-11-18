@@ -11,65 +11,63 @@ Sockets Links.
 ## PROGRAM
 Server.py
 ```
-# echo_server.py
 import socket
-# Create socket object
+
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# Bind the socket with host and port
+
 host = '127.0.0.1'
 port = 5000
+
 server_socket.bind((host, port))
-# Listen for incoming connections
 server_socket.listen(1)
 print("Echo Server is waiting for connection...")
-# Accept client connection
+
 client_socket, addr = server_socket.accept()
 print("Connected to:", addr)
+
 while True:
- # Receive message from client
  data = client_socket.recv(1024).decode()
  if not data:
  break
  print("Client:", data)
- # Send same message back to client
+ if data.lower() == 'exit':
+        break
  client_socket.send(data.encode())
-# Close sockets
+
 client_socket.close()
 server_socket.close()
 ```
 
 Client.py
 ```
-# echo_client.py
 import socket
-# Create socket object
+
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# Connect to server
+
 host = '127.0.0.1'
 port = 5000
+
 client_socket.connect((host, port))
+
 while True:
- # Input message
  message = input("Enter message: ")
- # Send message to server
  client_socket.send(message.encode())
  if message.lower() == 'exit':
  break
- # Receive echoed message
  data = client_socket.recv(1024).decode()
  print("Server echoed:", data)
-# Close socket
+
 client_socket.close()
 ```
 ## OUPUT
 
 Server.py:
 
-<img width="372" height="127" alt="image" src="https://github.com/user-attachments/assets/de72a7de-18e8-45ea-8559-af3beffa36b2" />
+<img width="375" height="110" alt="image" src="https://github.com/user-attachments/assets/cf29dd7b-c760-4212-b864-d5456d7ebb45" />
 
 Client.py:
 
-<img width="271" height="131" alt="image" src="https://github.com/user-attachments/assets/d9149460-70b8-4dae-bc0d-99a8ada91eb9" />
+<img width="255" height="107" alt="image" src="https://github.com/user-attachments/assets/1f4a481d-4328-477b-b4c9-848a867ee97d" />
 
 ## RESULT
 Thus, the python program for creating Echo Client and Echo Server using TCP Sockets Links 
