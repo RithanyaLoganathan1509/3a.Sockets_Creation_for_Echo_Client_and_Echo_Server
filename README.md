@@ -62,10 +62,13 @@ while True:
 client_socket.close()
 ```
 ## OUPUT
+
 Server.py:
+
 <img width="372" height="127" alt="image" src="https://github.com/user-attachments/assets/de72a7de-18e8-45ea-8559-af3beffa36b2" />
 
 Client.py:
+
 <img width="271" height="131" alt="image" src="https://github.com/user-attachments/assets/d9149460-70b8-4dae-bc0d-99a8ada91eb9" />
 
 ## RESULT
